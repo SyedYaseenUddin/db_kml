@@ -9,7 +9,7 @@ const generateMap = (geojson, home) => {
   L.geoJSON(geojson).addTo(map);
   setTimeout(() => {
     map.invalidateSize();
-  }, 3000);
+  });
 };
 
 const generateGeojson = (coor) => {
@@ -39,5 +39,5 @@ document.querySelector('#submitBtn').addEventListener('click', () => {
     <div id="map"></div>
   </div>
 </div>`;
-  setTimeout(() => generateMap(geojson, home), 1000);
+  setTimeout(() => generateMap(geojson, home));
 });

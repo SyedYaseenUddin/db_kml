@@ -1,6 +1,6 @@
 let map = null;
 const generateMap = (geojson, home) => {
-  map = L.map('leaflet-map').setView(home, 13);
+  map = L.map('map').setView(home, 13);
 
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution:
@@ -8,8 +8,8 @@ const generateMap = (geojson, home) => {
   }).addTo(map);
   L.geoJSON(geojson).addTo(map);
   setTimeout(() => {
-    map.invalidateSize()
-  }, 3000)
+    map.invalidateSize();
+  }, 3000);
 };
 
 const generateGeojson = (coor) => {
@@ -33,7 +33,10 @@ document.querySelector('#submitBtn').addEventListener('click', () => {
   coordinate = JSON.parse(coordinate).map((d) => d.split(',').map((d) => +d));
   const geojson = generateGeojson(coordinate);
   let home = JSON.parse(JSON.stringify(coordinate[0])).reverse();
-  document.querySelector('#map-area').innerHTML =
-    '<div id="leaflet-map"></div>';
-  generateMap(geojson, home);
+  document.querySelector('#map-area').innerHTML = `<div class="row">
+  <div class="col-12">
+    <div id="map"></div>
+  </div>
+</div>`;
+  setTimeout(() => generateMap(geojson, home), 1000);
 });

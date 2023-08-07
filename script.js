@@ -32,7 +32,6 @@ document.querySelector('#submitBtn').addEventListener('click', () => {
   let coordinate = document.querySelector('#coordinate').value;
   coordinate = JSON.parse(coordinate).map((d) => d.split(',').map((d) => +d));
   const geojson = generateGeojson(coordinate);
-  debugger;
   let home = JSON.parse(JSON.stringify(coordinate[0])).reverse();
   document.querySelector('#map-area').innerHTML = `<div class="row">
   <div class="col-12">

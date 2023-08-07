@@ -2,13 +2,13 @@ let map = null;
 const generateMap = (geojson, home) => {
   map = L.map('leaflet-map').setView(home, 13);
 
-  L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution:
       '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
   }).addTo(map);
   L.geoJSON(geojson).addTo(map);
   setTimeout(() => {
-    window.dispatchEvent(new Event('resize'));  
+    map.invalidateSize()
   }, 3000)
 };
 

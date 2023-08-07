@@ -1,6 +1,6 @@
 let map = null;
 const generateMap = (geojson, home) => {
-  map = L.map('map').setView(home, 13);
+  map = L.map('map').setView(home, 18);
 
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution:

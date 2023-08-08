@@ -1,4 +1,7 @@
 import * as geoJsonArea from './lib/geoarea.js';
+document.querySelector(
+  '#coordinate'
+).placeholder = `add co-ordinate ex:- ["78.34446558199403,17.935920114192413","78.34444166541078,17.935920114192413","78.34436513234448,17.93560155407353","78.34426468269606,17.935242035537343","78.34474062269936,17.935000839147804","78.34490564712297,17.93569257130916","78.34446558199403,17.935920114192413"]`;
 let map = null;
 const generateMap = (geojson, home) => {
   map = L.map('map').setView(home, 18);
